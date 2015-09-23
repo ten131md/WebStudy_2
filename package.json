@@ -1,0 +1,24 @@
+{
+  "name": "web-Study_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "nodemon": "^1.4.1",
+    "socket.io": "1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/ht12a092/WebStudy_2.git"
+  },
+  "author": "",
+  "license": "",
+  "private": true,
+  "homepage": "https://github.com/ht12a092/WebStudy_2"
+}
