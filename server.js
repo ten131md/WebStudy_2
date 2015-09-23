@@ -22,7 +22,13 @@ var scoa_io = socketIO.listen(8081);
 
 
 scoa_io.sockets.on("connection", function (socket) {
-	
-	
+
+
+	console.log("クライアント接続したよ");
+
+	socket.on("text", function (data) {
+		socket.emit("html", "data");
+	});
+
 
 });
