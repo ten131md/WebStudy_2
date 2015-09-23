@@ -1,32 +1,44 @@
 $(function() {
 
-	/**
-	 * キャンバスに対してクロマキー処理する関数
-	 * @param {Canvas} 処理対象のCanvas
-	 * @param {Context} 処理対象のCanvasの2D-Context
-	 */
-	function chromakeyImage(canvas, context) {
-		// キャンバスの画像を取得
-		var image = context.getImageData(0, 0, canvas.width, canvas.height);
+	var $videos = $('#bgVideos');
 
-		// 画像の各画素を反復
-		for (var i = 0, l = image.data.length; i < l; i += 4) {
-			// 画素を取得 (赤, 緑, 青, 透明度)
-			var red = image.data[i];
-			var green = image.data[i+1];
-			var blue = image.data[i+2];
-			var alpha = image.data[i+3];
-			// テスト
-			if (red == 255) {
-				image.data[i+3] = 0; // 透明にする
-			}
-		}
+	var video_thumbs = [
+		'http://placehold.it/240x180/ff0000/ffffff',
+		'http://placehold.it/240x180/00ff00/ffffff',
+		'http://placehold.it/240x180/0000ff/ffffff'
+	];
 
-		// Canvasを書き換え
-		context.putImageData(image.data, 0, 0);
-	};
+	for (var i = 0; i < video_thumbs.length; i++) {
 
-	$('#sourceFile').change(function(evt) {
+		var $img = $('<img/>');
+
+		$img.data('videoId', i);
+		$img.click(function() { // 画像がクリックされた時
+			var $img = $(this);
+			var video_id = $img.data('videoId');
+
+			// 背景画像を設定
+			var $video_frame = $('#videoFrame');
+			var video_url = video_thumbs[video_id];
+			$video_frame.css({
+				width: $('#canvas').width(),
+				height: $('#canvas').height(),
+				background: 'url(' + video_url + ') 50% 50% no-repeat',
+				backgroundSize: 'cover'
+			});
+
+		});
+
+		$img.addClass('img-responsive');
+
+		var url = video_thumbs[i];
+		$img.attr('src', url);
+
+		$videos.append($img);
+
+	}
+
+	/*$('#sourceFile').change(function(evt) {
 
 		// キャンバスを取得
 		var $canvas = $('#mCanvas');
@@ -55,6 +67,6 @@ $(function() {
 		};
 		reader.readAsDataURL(file);
 
-	});
+	});*/
 
 });

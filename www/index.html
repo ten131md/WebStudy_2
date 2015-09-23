@@ -7,19 +7,20 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="video.js"></script>
+	<script src="chromakey.js"></script>
 </head>
 
 <body>
 
 	<div class="row">
-		<div class="col-md-9">
+		<div id="videoFrame" class="col-md-9">
 			<video id="video" autoplay></video>
-			<canvas id="canvas" width="480" height="360"></canvas>
+			<canvas id="canvas" width="800" height="600"></canvas>
 		</div>
 		<div class="col-md-3">
 			<div class="rows">
 				<div class="well">
-					<img src="20130831090807.jpg" class="img-responsive">
+					<img src="movie.jpg" class="img-responsive">
 				</div>
 				<div class="well">
 					<h4>ビデオ一覧<h4>

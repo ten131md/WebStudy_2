@@ -1,6 +1,10 @@
 $(function() {
-    
-   var video = document.getElementById('video');
+
+	var video = document.getElementById('video');
+
+	// videoは不要なので非表示
+	video.style.display = 'none';
+
     var canvas = document.getElementById('canvas');
     // そのまま表示すると鏡像にならないので反転させておく
     canvas.style.transform = 'rotateY(180deg)';
@@ -19,7 +23,7 @@ $(function() {
         chromaKey();
         requestAnimationFrame(draw);
     };
-    
+
       // r,g,bというkeyを持ったobjectが第一引数と第二引数に渡される想定
     var getColorDistance = function (rgb1, rgb2) {
         // 三次元空間の距離が返る
@@ -29,10 +33,10 @@ $(function() {
             Math.pow((rgb1.b - rgb2.b), 2)
         );
     };
-    
+
     // 消す色と閾値
     var chromaKeyColor = {r: 0, g: 255, b: 0},
-        colorDistance = 30;
+        colorDistance = 200;
 
     // クロマキー処理
     var chromaKey = function () {
