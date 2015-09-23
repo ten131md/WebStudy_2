@@ -11,8 +11,8 @@ textarea {
 </style>
 
 
-<input type="text">
-<input type="button" value="送信">
+<input id="text-box" type="text">
+<input type="button" value="送信" onclick='send();'>
 
 <hr>
 
@@ -21,12 +21,18 @@ textarea {
 
 
 <script type="text/javascript">
+
 var chatSocket = io.connect("http://"+location.host.split(":")[0]+":8081");
 
 chatSocket.on("html", function (data) {
     $('#htmlbox').append($('<div>').append($('<textarea disabled>').html(data)));
 });
 
-chatSocket.emit('text','あｓｄｆｇｈｊｋｌ');
+
+function    send() {
+    
+    chatSocket.emit('text',$("#text-box").val());    
+}
+
 
 </script>
