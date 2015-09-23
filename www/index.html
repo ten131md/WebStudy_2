@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Web勉強会</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="chromakey.js"></script>
-		<style>
-		textarea {
-			border-style: dashed;
-			border-width: 1px;
-			border-color: #000;
-			width: 100%;
-		}
-		</style>
-	</head>
-	<body>
-		
-	</body>
+
+<head>
+	<meta charset="utf-8">
+	<title>Web勉強会</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="video.js"></script>
+</head>
+
+<body>
+
+	<div class="row">
+		<div class="col-md-9">
+			<video id="video" autoplay></video>
+			<canvas id="canvas" width="480" height="360"></canvas>
+		</div>
+		<div class="col-md-3">
+			<div class="rows">
+				<div class="well">
+					<img src="20130831090807.jpg" class="img-responsive">
+				</div>
+				<div class="well">
+					<h4>ビデオ一覧<h4>
+					<div id="bgVideos"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
 </html>
