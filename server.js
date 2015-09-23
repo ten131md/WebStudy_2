@@ -27,7 +27,7 @@ scoa_io.sockets.on("connection", function (socket) {
 	console.log("クライアント接続したよ");
 
 	socket.on("text", function (data) {
-		socket.emit("html", "data");
+		socket.emit("html", data);
 	});
 
 
