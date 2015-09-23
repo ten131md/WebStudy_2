@@ -1,0 +1,22 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="./socket.js"></script>
+
+<style>
+textarea {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #000;
+    width: 100%;
+}
+</style>
+
+<span id="htmlbox"></span>
+
+<script type="text/javascript">
+var chatSocket = io.connect("http://"+location.host.split(":")[0]+":8081");
+
+chatSocket.on("html", function (data) {
+    $('#htmlbox').append($('<div>').append($('<textarea disabled>').html(data)));
+});
+
+</script>
